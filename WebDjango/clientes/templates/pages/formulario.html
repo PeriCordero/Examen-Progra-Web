@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../static/assets/Logo.png" type="image/png">
+    <link rel="stylesheet" href="../../static/css/styleFormulario.css">
+    <title>FORMULARIO</title>
+    <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Inicio</a></li>
+</head>
+<body>
+    <div class="container">
+        <form class="col-6">
+            <h1>Clientes que compraron un dibujo</h1>
+            <label>Nombre del Cliente:</label>
+            <input type="text" class="form-control" id="nombre">
+            <label>Tipo de dibujo:</label>
+            <select class="form-select" id="edad">
+                <option>Dibujo Pequeño</option>
+                <option>Dibujo Mediano</option>
+                <option>Dibujo Grande</option>        
+            </select>
+            <label>Correo:</label>
+            <input type="text" class="form-control" id="tiempo">
+            <label>Instagram:</label>
+            <input type="text" class="form-control" id="instagram">
+            <label>Teléfono:</label>
+            <input type="number" class="form-control" id="telefono">
+            <button type="button" class="btn btn-success" id="agregar">Agregar Cliente</button>
+          </form>
+        <div class="col-12 mt-3" id="tabla">
+            <table class="table table-striped" id="lista">
+                <tr>
+                    <td>Nombre Cliente</td>
+                    <td>Tipo de dibujo</td>
+                    <td>Correo</td>
+                    <td>Instagram</td>
+                    <td>Teléfono</td>
+                    <td>Acción</td>
+                </tr>
+            </table>
+        </div>   
+    </div>
+    <div class="col-10 text-right" id="tiempo"></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+    crossorigin="anonymous"></script>
+    <script src="../../static/js/app.js"></script>
+    <script src="../../static/js/theme.js"></script>
+</body>
+</html>

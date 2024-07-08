@@ -43,22 +43,22 @@
                         <li class="nav-item submenu dropdown">
                             <a class="nav-link" href="#">Portafolio</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="portfolio.html">Portafolio</a></li>
-                                <li class="nav-item"><a class="nav-link" href="portfolio-details.html">Portafolio detalles</a>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'portfolio'%}">Portafolio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'portfolio_details'%}">Portafolio detalles</a>
                             </ul>
                         </li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                              aria-expanded="false">Cosas extras</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="elements.html">¿Que puedo dibujar?</a>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'elements'%}">¿Que puedo dibujar?</a>
                             </ul>
                         </li>
                             
                             
                         
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contactame</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Carrito.html">Tienda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'contact'%}">Contactame</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Carrito'%}">Tienda</a></li>
                         
                     </ul>
                 </div>
@@ -146,7 +146,7 @@
                 <div class="col-lg-6 text-center">
                     <aside class="f_widget social_widget">
                         <div class="f_logo">
-                            <img src="img/logo.png" alt="">
+                            <img src="../../static/assets/logo.png" alt="">
                         </div>
                         <div class="f_title">
                             <h4>¡Sigueme en mis redes!</h4>
@@ -205,26 +205,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.js"></script>
+    <script src="../../static/js/jquery-3.2.1.min.js"></script>
+    <script src="../../static/js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/stellar.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="vendors/lightbox/simpleLightbox.min.js"></script>
-    <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
-    <script src="vendors/isotope/isotope-min.js"></script>
-    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/mail-script.js"></script>
+    <script src="../../static/js/stellar.js"></script>
+    <script src="../../static/js/jquery.magnific-popup.min.js"></script>
+    <script src="../../static/js/simpleLightbox.min.js"></script>
+    <script src="../../static/js/jquery.nice-select.min.js"></script>
+    <script src="../../static/js/imagesloaded.pkgd.min.js"></script>
+    <script src="../../static/js/isotope-min.js"></script>
+    <script src="../../static/js/owl.carousel.min.js"></script>
+    <script src="../../static/js/jquery.ajaxchimp.min.js"></script>
+    <script src="../../static/js/mail-script.js"></script>
     <!-- contact js -->
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/contact.js"></script>
+    <script src="../../static/js/jquery.form.js"></script>
+    <script src="../../static/js/jquery.validate.min.js"></script>
+    <script src="../../static/contact.js"></script>
     <!--gmaps Js-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-    <script src="js/gmaps.min.js"></script>
-    <script src="js/theme.js"></script>
+    <script src="../../static/gmaps.min.js"></script>
+    <script src="../../static/theme.js"></script>
 </body>
 
 </html>

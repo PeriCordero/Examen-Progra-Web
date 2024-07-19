@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nuevo Dibujo</title>
+</head>
+<body>
+    <h1>Nuevo Dibujo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Crear</button>
+    </form>
+    <a href="{% url 'dibujo_list' %}">Volver a la lista</a>
+</body>
+</html>

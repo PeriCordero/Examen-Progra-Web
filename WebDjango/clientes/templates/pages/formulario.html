@@ -6,46 +6,125 @@
     <link rel="icon" href="../../static/assets/Logo.png" type="image/png">
     <link rel="stylesheet" href="../../static/css/styleFormulario.css">
     <title>FORMULARIO</title>
-    <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Inicio</a></li>
 </head>
 <body>
+    <header class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand" href="{% url 'index' %}"><img src="../../static/assets/logo.png" alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav justify-content-end">
+							<li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Inicio</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">¿Quien soy?</a></li>
+							<li class="nav-item submenu dropdown">
+								<a class="nav-link" href="#">Portafolio</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="{% url 'portfolio' %}">Portafolio</a></li>
+									<li class="nav-item"><a class="nav-link" href="{% url 'portfolio_details' %}">Portafolio detalles</a>
+								</ul>
+							</li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Cosas extras</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="{% url 'elements' %}">¿Que puedo dibujar?</a>
+								</ul>
+							</li>
+								
+								
+							
+							<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contactame</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'carrito' %}">Carrito</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'formulario' %}">formulario</a></li>
+							<li class="nav-item" style=" height: 40px; border-radius: 2px; margin-top: 0px;"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesion</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+        </div>
+    </header>
+    
     <div class="container">
-        <form class="col-6">
+        <form class="col-6" id="formulario">
             <h1>Clientes que compraron un dibujo</h1>
-            <label>Nombre del Cliente:</label>
+            <label>Nombre del Dibujo:</label>
             <input type="text" class="form-control" id="nombre">
             <label>Tipo de dibujo:</label>
-            <select class="form-select" id="edad">
+            <select class="form-select" id="tipo">
                 <option>Dibujo Pequeño</option>
                 <option>Dibujo Mediano</option>
                 <option>Dibujo Grande</option>        
             </select>
-            <label>Correo:</label>
-            <input type="text" class="form-control" id="tiempo">
-            <label>Instagram:</label>
-            <input type="text" class="form-control" id="instagram">
-            <label>Teléfono:</label>
-            <input type="number" class="form-control" id="telefono">
             <button type="button" class="btn btn-success" id="agregar">Agregar Cliente</button>
-          </form>
+        </form>
         <div class="col-12 mt-3" id="tabla">
             <table class="table table-striped" id="lista">
-                <tr>
-                    <td>Nombre Cliente</td>
-                    <td>Tipo de dibujo</td>
-                    <td>Correo</td>
-                    <td>Instagram</td>
-                    <td>Teléfono</td>
-                    <td>Acción</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Nombre Dibujo</th>
+                        <th>Tipo de dibujo</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be appended here -->
+                </tbody>
             </table>
         </div>   
     </div>
-    <div class="col-10 text-right" id="tiempo"></div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
     crossorigin="anonymous"></script>
     <script src="../../static/js/app.js"></script>
     <script src="../../static/js/theme.js"></script>
+    <script>
+        var boton = document.getElementById('agregar');
+        var lista = document.getElementById('lista').getElementsByTagName('tbody')[0];
+        var data = [];
+        var cant = 0;
+
+        boton.addEventListener("click", agregar);
+
+        function agregar() {
+            var nombre = document.getElementById('nombre').value;
+            var tipo = document.getElementById('tipo').value;
+
+            if (nombre.length < 3) {
+                alert("El nombre es demasiado corto. Debe tener al menos 3 caracteres.");
+                return;
+            }
+            if (tipo.length === 0) {
+                alert("Por favor, ingresa un tipo de dibujo.");
+                return;
+            }
+
+            data.push({
+                "id": cant,
+                "nombre": nombre,
+                "tipo": tipo
+            });
+
+            var id_row = 'row' + cant;
+            var fila = '<tr id=' + id_row + '><td>' + nombre + '</td><td>' + tipo + '</td><td><a href="#" class="btn btn-danger" onclick="eliminar(' + cant + ')">Eliminar</a></td></tr>';
+
+            $("#lista tbody").append(fila);
+            $("#nombre").val('');
+            $("#tipo").val('');
+            cant++;
+        }
+
+        function eliminar(id) {
+            $("#row" + id).remove();
+        }
+    </script>
 </body>
 </html>

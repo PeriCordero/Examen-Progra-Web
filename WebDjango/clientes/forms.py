@@ -1,9 +1,15 @@
-# clientes/forms.py
-
 from django import forms
-from .models import Cliente
+from .models import Dibujo
+from .models import Users
+from django.forms import ModelForm
 
-class ClienteForm(forms.ModelForm):
+class DibujoForm(forms.ModelForm):
     class Meta:
-        model = Cliente
-        fields = ['nombre', 'tipo_dibujo', 'correo', 'instagram', 'telefono']
+        model = Dibujo
+        fields = "__all__"
+
+class UsersForm(forms.ModelForm):
+    class Meta:
+        model = Users
+        fields = "__all__"
+

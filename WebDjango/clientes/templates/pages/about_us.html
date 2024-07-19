@@ -25,7 +25,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
-				<a class="navbar-brand" href="{% url 'index' %}"><img src="img/logo.png" alt=""></a>
+				<a class="navbar-brand" href="{% url 'index' %}"><img src="../../static/assets/logo.png" alt=""></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icon-bar"></span>
@@ -48,14 +48,16 @@
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 							 aria-expanded="false">Cosas extras</a>
 							<ul class="dropdown-menu">
-								<li class="nav-item"><a class="nav-link" href="{% url 'elements' %}.html">¿Que puedo dibujar?</a>
+								<li class="nav-item"><a class="nav-link" href="{% url 'elements' %}">¿Que puedo dibujar?</a>
 							</ul>
 						</li>
 							
 							
 						
 						<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contactame</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'Carrito' %}">Tienda</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'carrito' %}">Carrito</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'formulario' %}">formulario</a></li>
+						<li class="nav-item" style=" height: 40px; border-radius: 2px; margin-top: 0px;"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesion</a></li>
 					</ul>
 				</div>
 			</div>
@@ -107,92 +109,7 @@
 	<!--================ End About Area =================-->
 
 	<!--================ Start Testimonial Area =================-->
-	<div class="section_gap testimonial_area">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-7 text-left">
-					<div class="active_testimonial owl-carousel" data-slider-id="1">
-						<!-- single testimonial -->
-						<div class="single_testimonial">
-							<div class="testimonial_head">
-								<img src="../../static/assets/quote.png" alt="">
-								<h4>Makayla</h4>
-								<div class="review">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-							<div class="testimonial_content">
-								<p>El arte esta muy bien pensado, todo en las piezas se ven planeadas y puestas con proposito, cada dibujo,
-								es consistente en estilo y muestra mucha mejora con cada dibujo hecho. el color y los trazos de tinta se mezclan 
-								bien. Los personajes de Martín son unicos y especiales.
-								</p>
-							</div>
-						</div>
-
-						<div class="single_testimonial">
-							<div class="testimonial_head">
-								<img src="../../static/assets/quote.png" alt="">
-								<h4>Un tipo de la calle</h4>
-								<div class="review">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-							<div class="testimonial_content">
-								<p>EHH.. si si eh visto su trabajo es emmm (¿ya me van a pagar?)</p>
-							</div>
-						</div>
-
-						<div class="single_testimonial">
-							<div class="testimonial_head">
-								<img src="../../static/assets/quote.png" alt="">
-								<h4>mamá de Martín</h4>
-								<div class="review">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-							<div class="testimonial_content">
-								<p>SI</p>
-							</div>
-						</div>
-
-						<div class="single_testimonial">
-							<div class="testimonial_head">
-								<img src="../../static/assets/quote.png" alt="">
-								<h4>Fanny Spencer</h4>
-								<div class="review">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div>
-							</div>
-							<div class="testimonial_content">
-								<p>As conscious traveling Paup ers we must always be oncerned about our dear Mother Earth. If you think about
-									it, you travel across her face</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<!--================ End Testimonial Area =================-->
 
 	

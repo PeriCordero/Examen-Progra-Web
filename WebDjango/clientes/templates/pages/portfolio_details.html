@@ -58,7 +58,9 @@
 							
 						
 						<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contactame</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'Carrito' %}">Tienda</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'carrito' %}">Carrito</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'formulario' %}">formulario</a></li>
+						<li class="nav-item" style=" height: 40px; border-radius: 2px; margin-top: 0px;"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesion</a></li>
 					</ul>
 				</div>
 			</div>
@@ -69,25 +71,27 @@
 
 
 	<!--================ Start portfolio Banner Area =================-->
-	<section class="banner_area">
+	<div class="banner">
+		<img src="../../static/assets/BANNER1.png">
 		<div class="banner_inner d-flex align-items-center">
-			<div class="container">
-				<div class="banner_content text-right">
-					<img class="img-fluid" src="../../static/assets/BANNER1.png" alt="">
-					<h1>Portafolio detalles</h1>
-					<div class="page_link">
-						<a href="{% url 'index' %}">Inicio</a>
-						<a href="{% url 'portfolio' %}">Portafolio</a>
-						<a href="{% url 'portfolio_details' %}">Portafolio detalles</a>
-
-					</div>
+			<div class="banner-content" style="display: block; margin-top: -250px;">
+				<h1>Portafolio detalles</h1>
+				<div class="page_link" style="border: 1px solid black; border-radius: 10px; width: 46%;">
+					<a href="{% url 'index' %}" style="color: black;">Inicio / </a>
+					<a href="{% url 'portfolio' %}" style="color: black;">Portafolio / </a>
+					<a href="{% url 'portfolio_details' %}" style="color: black;">Portafolio detalles</a>
 				</div>
-			</div>
 		</div>
-	</section>
+		
+		</div>
+		
+	</div>
+	
 	<!--================ End Portfolio Banner Area =================-->
 
 	<!--================ Start Portfolio Details Area =================-->
+
+	
 	
 	<div class="projects_inner row grid">
 				<div class="grid-sizer col-sm-6 col-md-3 col-lg-3"></div>
@@ -100,6 +104,7 @@
 							</a>
 							<p>Martín Pero Cordero</p>
 							<p>	$30.000</p>
+							<p>30 alto / 21 ancho</p>
 						</div>
 					</div>
 				</div>
@@ -112,6 +117,20 @@
 							</a>
 							<p>Martín Pero Cordero</p>
 							<p>$5.000</p>
+							<p>15 alto / 12 ancho</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 col-sm-12 brand work grid-item">
+					<div class="projects_item" style="margin-top: -800px;">
+						<img class="img-fluid w-100" src="../../static/assets/Cozy Glow.jpg" alt="">
+						<div class="projects_text">
+							<a href="{% url 'portfolio_details' %}">
+								<h4>Ejemplo Dibujo Pequeño</h4>
+							</a>
+							<p>Martín Pero Cordero</p>
+							<p>$5.000</p>
+							<p>15 alto / 12 ancho</p>
 						</div>
 					</div>
 				</div>

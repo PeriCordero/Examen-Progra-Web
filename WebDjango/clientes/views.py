@@ -1,74 +1,101 @@
-
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Cliente
-from .forms import ClienteForm
+from .models import Dibujo
+from .forms import DibujoForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login as auth_login, authenticate
+from django.contrib.auth.decorators import login_required
 
 def index(request):
-    context={}
+    context = {}
     return render(request, 'pages/index.html', context)
-    
+
+def user_login(request):
+    login_form = AuthenticationForm()
+    register_form = UserCreationForm()
+
+    if request.method == 'POST' and 'login' in request.POST:
+        login_form = AuthenticationForm(request, data=request.POST)
+        if login_form.is_valid():
+            user = login_form.get_user()
+            auth_login(request, user)
+            return redirect('index')  # Redirect to a success page or dashboard
+
+    if request.method == 'POST' and 'register' in request.POST:
+        register_form = UserCreationForm(request.POST)
+        if register_form.is_valid():
+            user = register_form.save()
+            auth_login(request, user)
+            return redirect('index')  # Redirect to a success page or dashboard
+
+    return render(request, 'pages/login.html', {'login_form': login_form, 'register_form': register_form})
+
+
+
 def about_us(request):
-    context={}
+    context = {}
     return render(request, 'pages/about_us.html', context)
 
-
 def portfolio(request):
-    context={}
+    context = {}
     return render(request, 'pages/portfolio.html', context)
 
 def portfolio_details(request):
-    context={}
+    context = {}
     return render(request, 'pages/portfolio_details.html', context)
 
 def formulario(request):
-    context={}
+    context = {}
     return render(request, 'pages/formulario.html', context)
 
-
 def elements(request):
-    context={}
+    context = {}
     return render(request, 'pages/elements.html', context)
 
 def contact(request):
-    context={}
+    context = {}
     return render(request, 'pages/contact.html', context)
 
-def Carrito(request):
-    context={}
-    return render(request, 'pages/Carrito.html', context)
+def carrito(request):
+    context = {}
+    return render(request, 'pages/carrito.html', context)
 
-def cliente_list(request):
-    cliente = Cliente.objects.all()
-    return render(request, 'pages/cliente_list.html', {'cliente': cliente})
+@login_required
+def dibujo_list(request):
+    dibujos = Dibujo.objects.all()
+    return render(request, 'pages/dibujo_list.html', {'dibujos': dibujos})
 
-def cliente_detail(request, pk):
-    cliente = get_object_or_404(Cliente, pk=pk)
-    return render(request, 'pages/cliente_detail.html', {'cliente': cliente})
+@login_required
+def dibujo_detail(request, pk):
+    dibujo = get_object_or_404(Dibujo, pk=pk)
+    return render(request, 'pages/dibujo_detail.html', {'dibujo': dibujo})
 
-def cliente_create(request):
+@login_required
+def dibujo_new(request):
     if request.method == "POST":
-        form = ClienteForm(request.POST)
+        form = DibujoForm(request.POST)
         if form.is_valid():
-            cliente = form.save()
-            return redirect('cliente_detail', pk=cliente.pk)
+            dibujo = form.save()
+            return redirect('dibujo_detail', pk=dibujo.pk)
     else:
-        form = ClienteForm()
-    return render(request, 'pages/cliente_form.html', {'form': form})
+        form = DibujoForm()
+    return render(request, 'pages/dibujo_edit.html', {'form': form})
 
-def cliente_update(request, pk):
-    cliente = get_object_or_404(Cliente, pk=pk)
+@login_required
+def dibujo_edit(request, pk):
+    dibujo = get_object_or_404(Dibujo, pk=pk)
     if request.method == "POST":
-        form = ClienteForm(request.POST, instance=cliente)
+        form = DibujoForm(request.POST, instance=dibujo)
         if form.is_valid():
-            cliente = form.save()
-            return redirect('cliente_detail', pk=cliente.pk)
+            dibujo = form.save()
+            return redirect('dibujo_detail', pk=dibujo.pk)
     else:
-        form = ClienteForm(instance=cliente)
-    return render(request, 'pages/cliente_form.html', {'form': form})
+        form = DibujoForm(instance=dibujo)
+    return render(request, 'pages/dibujo_edit.html', {'form': form})
 
-def cliente_delete(request, pk):
-    cliente = get_object_or_404(Cliente, pk=pk)
-    if request.method == "POST":
-        cliente.delete()
-        return redirect('cliente_list')
-    return render(request, 'pages/cliente_confirm_delete.html', {'cliente': cliente})
+@login_required
+def dibujo_delete(request, pk):
+    dibujo = get_object_or_404(Dibujo, pk=pk)
+    dibujo.delete()
+    return redirect('dibujo_list')
+
+

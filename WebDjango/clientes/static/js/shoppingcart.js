@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const quantityInputs = document.querySelectorAll('.quantity-input');
     const summarySubtotal = document.querySelector('.summary-item.subtotal .price');
     const summaryTotal = document.querySelector('.summary-item.total .price');
+    const removeButtons = document.querySelectorAll('.remove-product');
 
     function updateCartTotal() {
         let subtotal = 0;
@@ -20,6 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
         summaryTotal.textContent = `$${subtotal.toFixed(2)}`;
     }
 
+    function removeProduct(event) {
+        const buttonClicked = event.target;
+        const productRow = buttonClicked.closest('.product');
+        productRow.remove();
+        updateCartTotal();
+    }
+
     quantityInputs.forEach(input => {
         input.addEventListener('change', function () {
             if (isNaN(input.value) || input.value <= 0) {
@@ -27,6 +35,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             updateCartTotal();
         });
+    });
+
+    removeButtons.forEach(button => {
+        button.addEventListener('click', removeProduct);
     });
 
     updateCartTotal();

@@ -1,5 +1,7 @@
-
 from django.contrib import admin
-from .models import Cliente
+from .models import Dibujo
+from .models import Users
 
-admin.site.register(Cliente)
+
+admin.site.register(Dibujo)
+admin.site.register(Users)

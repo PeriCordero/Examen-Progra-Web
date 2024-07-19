@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Dibujos</h1>
+  <ul>
+    {% for dibujo in dibujos %}
+      <li>
+        {{ dibujo.nombre }} ({{ dibujo.get_tipo_display }})
+        <a href="{% url 'dibujo_detail' dibujo.pk %}">Ver</a>
+        <a href="{% url 'dibujo_edit' dibujo.pk %}">Editar</a>
+        <a href="{% url 'dibujo_delete' dibujo.pk %}">Eliminar</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'dibujo_new' %}">Crear nuevo dibujo</a>
+{% endblock %}

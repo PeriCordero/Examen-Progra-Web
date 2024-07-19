@@ -58,8 +58,9 @@
 								
 							
 							<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contactame</a></li>
-							<li class="nav-item"><a class="nav-link" href="{% url 'Carrito' %}">Tienda</a></li>
+							<li class="nav-item"><a class="nav-link" href="{% url 'carrito' %}">Carrito</a></li>
 							<li class="nav-item"><a class="nav-link" href="{% url 'formulario' %}">formulario</a></li>
+							<li class="nav-item" style=" height: 40px; border-radius: 2px; margin-top: 0px;"><a class="nav-link" href="{% url 'login' %}">Iniciar Sesion</a></li>
 						</ul>
 					</div>
 				</div>
@@ -69,45 +70,16 @@
 	<!--================Header Menu Area =================-->
 
 	<!--================Home Banner Area =================-->
-	<section class="banner-area owl-carousel" id="home">
-		<div class="single_slide_banner slide_bg1">
-			<div class="container">
-				<div class="row fullscreen d-flex align-items-center">
-					<div class="banner-content col-lg-12 justify-content-center">
-						<img class="img-fluid" src="../../static/assets/BANNER1.png" alt="">
-						<h1>Martín Pero Cordero</h1>
-						<h3>Pagina web Personal de Dibujo</h3>
-						<a href="{% url 'contact' %}" class="primary-btn">Contratame</a>
-						
-					</div>
+			<div class="banner">
+				<img src="../../static/assets/BANNER1.png">
+				<div class="banner-content" style="display: block; margin-top: -250px;">
+					<h1>Martín Pero Cordero</h1>
+					<h3>Pagina web Personal de Dibujo</h3>
+					<a href="{% url 'contact' %}" class="primary-btn">Contratame</a>
 				</div>
+				
 			</div>
-		</div>
-		<div class="single_slide_banner slide_bg2">
-			<div class="container">
-				<div class="row fullscreen d-flex align-items-center">
-					<div class="banner-content col-lg-12 justify-content-center">
-						<img class="img-fluid" src="../../static/assets/BANNER1.png" alt="">
-						<h1>Martín Pero Cordero</h1>
-						<h3>Pagina web Personal de Dibujo</h3>
-						<a href="{% url 'contact' %}" class="primary-btn">Contratame</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="single_slide_banner slide_bg3">
-			<div class="container">
-				<div class="row fullscreen justify-content-endd-flex align-items-center">
-					<div class="banner-content col-lg-12 justify-content-center">
-						<img class="img-fluid" src="../../static/assets/BANNER1.png" alt="">
-						<h1>Martín Pero Cordero</h1>
-						<h3>Pagina web Personal de Dibujo</h3>
-						<a href="{% url 'contact' %}" class="primary-btn">Contratame</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+				
 	<!--================End Home Banner Area =================-->
 
 	<!--================ Start Portfolio Area =================-->
@@ -118,67 +90,79 @@
 					<div class="main-title">
 						<h1>Portafolio con los mejores dibujos</h1>
 						<p>Si buscas a alguien para ilustrarte alguna idea o algo que tengas en mente, ¡por solo $5.000!.</p>
+						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+							  <div class="carousel-item active">
+								<div class="projects_item">
+									<img class="d-block w-100" src="../../static/assets/Alcione.png" alt="First slide">
+									<div class="projects_text">
+										<a href="{% url 'portfolio_details' %}">
+											<h4>Alcione</h4>
+										</a>
+										<p>Martín Pero Cordero</p>
+									</div>
+								</div>
+							  </div>
+							  <div class="carousel-item">
+								<div class="projects_item">
+									<img class="d-block w-100" src="../../static/assets/quatro_concept_art.jpg" alt="Second slide">
+									<div class="projects_text">
+										<a href="{% url 'portfolio_details' %}">
+											<h4>Quatro</h4>
+										</a>
+										<p>Martín Pero Cordero</p>
+									</div>
+								</div>
+							  </div>
+							  <div class="carousel-item">
+								<div class="projects_item">
+									<img class="d-block w-100" src="../../static/assets/VIVI.jpg" alt="Third slide">
+									<div class="projects_text">
+										<a href="{% url 'portfolio_details' %}">
+											<h4>Vivi Final Fantasy IX</h4>
+										</a>
+										<p>Martín Pero Cordero</p>
+									</div>
+								</div>
+							  </div>
+							  <div class="carousel-item">
+								<div class="projects_item">
+									<img class="d-block w-100" src="../../static/assets/Cozy Glow.jpg" alt="Fourth slide">
+									<div class="projects_text">
+										<a href="{% url 'portfolio_details' %}">
+											<h4>Cozy Glow y lord Tirek</h4>
+										</a>
+										<p>Martín Pero Cordero</p>
+									</div>
+								</div>
+							  </div>
+							  <div class="carousel-item">
+								<div class="projects_item">
+									<img class="d-block w-100" src="../../static/assets/Muffin.jpg" alt="Fifth slide">
+									<div class="projects_text">
+										<a href="{% url 'portfolio_details' %}">
+											<h4>Muffin Pony Murciélago</h4>
+										</a>
+										<p>Martín Pero Cordero</p>
+									</div>
+								</div>
+							  </div>
+							</div>
+							<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+							  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							  <span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+							  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+							  <span class="sr-only">Next</span>
+							</a>
+						  </div>
+						  
 					</div>
 				</div>
 			</div>
 			
-			<div class="projects_inner row grid">
-				<div class="grid-sizer col-sm-6 col-md-3 col-lg-3"></div>
-				<div class="col-lg-6 col-sm-6 col-sm-12 brand web grid-item">
-					<div class="projects_item">
-						<img class="img-fluid w-100" src="../../static/assets/Alcione.png" alt="">
-						<div class="projects_text">
-							<a href="{% url 'portfolio_details' %}">
-								<h4>Alcione</h4>
-							</a>
-							<p>Martín Pero Cordero</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 col-sm-12 brand work grid-item">
-					<div class="projects_item">
-						<img class="img-fluid w-100" src="../../static/assets/quatro_concept_art.jpg" alt="">
-						<div class="projects_text">
-							<a href="{% url 'portfolio_details' %}">
-								<h4>Quatro</h4>
-							</a>
-							<p>Martín Pero Cordero</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-6 work grid-item">
-					<div class="projects_item">
-						<img class="img-fluid w-100" src="../../static/assets/VIVI.jpg" alt="">
-						<div class="projects_text">
-							<a href="{% url 'portfolio_details' %}">
-								<h4>Vivi Final Fantasy IX</h4>
-							</a>
-							<p>Martín Pero Cordero</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-sm-6 brand work grid-item">
-					<div class="projects_item">
-						<img class="img-fluid w-100" src="../../static/assets/Cozy Glow.jpg" alt="">
-						<div class="projects_text">
-							<a href="{% url 'portfolio_details' %}">
-								<h4>Cozy Glow y lord Tirek</h4>
-							</a>
-							<p>Martín Pero Cordero</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-sm-6 brand web grid-item">
-					<div class="projects_item">
-						<img class="img-fluid w-100" src="../../static/assets/Muffin.jpg" alt="">
-						<div class="projects_text">
-							<a href="{% url 'portfolio_details' %}">
-								<h4>Muffin Pony Murciélago</h4>
-							</a>
-							<p>Martín Pero Cordero</p>
-						</div>
-					</div>
-				</div>
+			
 			
 						</div>
 					</div>
@@ -214,15 +198,16 @@
 	<!--================ End About Area =================-->
 
 	<!--================ Start Testimonial Area =================-->
+	
 	<div class="section_gap testimonial_area">
-		<div class="container">
+		<div class="container" style="margin-left: -100px;">
 			<div class="row justify-content-center">
 				<div class="col-lg-7 text-left">
-					<div class="active_testimonial owl-carousel" data-slider-id="1">
+					<div class="active_testimonial owl-carousel" data-slider-id="1" style="margin-left: -800px;">
 						<!-- single testimonial -->
-						<div class="single_testimonial">
+						<div class="single_testimonial" >
 							<div class="testimonial_head">
-								<img src="../../static/assets/quote.png" alt="">
+								<img src="../../static/assets/quote.png" alt="" style="width: 10%;">
 								<h4>Makayla</h4>
 								<div class="review">
 									<i class="fa fa-star"></i>
@@ -242,8 +227,8 @@
 
 						<div class="single_testimonial">
 							<div class="testimonial_head">
-								<img src="../../static/assets/quote.png" alt="">
-								<h4>Un t	ipo de la calle</h4>
+								<img src="../../static/assets/quote.png" alt="" style="width: 10%;">
+								<h4>Un tipo de la calle</h4>
 								<div class="review">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -259,7 +244,7 @@
 
 						<div class="single_testimonial">
 							<div class="testimonial_head">
-								<img src="../../static/assets/quote.png" alt="">
+								<img src="../../static/assets/quote.png" alt="" style="width: 10%;">
 								<h4>mamá de Martín</h4>
 								<div class="review">
 									<i class="fa fa-star"></i>
@@ -276,7 +261,7 @@
 
 						<div class="single_testimonial">
 							<div class="testimonial_head">
-								<img src="../../static/assets/quote.png" alt="">
+								<img src="../../static/assets/quote.png" alt="" style="width: 10%;">
 								<h4>Fanny Spencer</h4>
 								<div class="review">
 									<i class="fa fa-star"></i>
